@@ -1,0 +1,59 @@
+<div class="container">
+<mat-card >
+    <mat-card-header class="titles">Todo List</mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Ingresa tarea</mat-label>
+        <input #Atarea matInput type="text" >
+      </mat-form-field>
+      <button mat-flat-button (click)="AgregarTarea(Atarea.value)">Agregar</button>
+
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="newtask">
+  <mat-card-header>
+    <mat-card-title><p>Tareas agregadas</p></mat-card-title>
+  </mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let tareas of tareas">
+        <input type="checkbox" (click)="removetask(tareas.task)">
+          {{tareas.task}}
+          {{tareas.date | date:"mediumDate"}}
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="newtask">
+  <mat-card-header>
+    <mat-card-title><p>Tareas Terminadas</p></mat-card-title>
+  </mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let tareaterminada of taskterminada">
+        <input type="checkbox" (click)="removetask(tareaterminada.task)">
+        {{tareaterminada.task}}
+        {{tareaterminada.date | date:"mediumDate"}}
+        </div>
+    </mat-card-content>
+</mat-card>
+</div>
+
+<!--<h3>Tareas pendientes</h3>
+<div *ngFor="let tareas of tareas">
+<input type="checkbox" (click)="removetask(tareas.task)">
+{{tareas.task}}
+{{tareas.date | date:"mediumDate"}}
+{{tareas.status}}
+
+</div>
+
+
+<h3>tareas terminadas</h3>
+<div *ngFor="let tareaterminada of taskterminada">
+  {{tareaterminada.task}}
+  {{tareaterminada.date | date:"mediumDate"}}
+  {{tareaterminada.status}}
+
+</div>-->
+
+
