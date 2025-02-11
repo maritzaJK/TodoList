@@ -1,0 +1,22 @@
+<div class="container">
+    <h3>login</h3>
+    <mat-card>
+        <mat-card-content>
+        <mat-form-field>
+        <mat-label class="logininput">User</mat-label>
+        <input matInput #user>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label class="logininput"  >Password</mat-label>
+          <input matInput #password>
+          </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+
+
+
+      <button mat-flat-button (click)="autentification(user.value,password.value)">Login</button>
+      <button mat-flat-button>Registro</button>
+
+</div>
+

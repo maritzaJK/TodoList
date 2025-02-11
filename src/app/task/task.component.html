@@ -1,41 +1,52 @@
+<button mat-flat-button color="primary" >Registro/login</button>
 <div class="container">
-<mat-card >
-    <mat-card-header class="titles">Todo List</mat-card-header>
+  <p>
+  <h3>Todo List</h3>
+  <mat-card>
+    <mat-card-header class="titles"></mat-card-header>
     <mat-card-content>
       <mat-form-field>
         <mat-label>Ingresa tarea</mat-label>
-        <input #Atarea matInput type="text" >
+        <input #Atarea matInput type="text">
       </mat-form-field>
       <button mat-flat-button (click)="AgregarTarea(Atarea.value)">Agregar</button>
 
     </mat-card-content>
-</mat-card>
+  </mat-card>
 
-<mat-card class="newtask">
-  <mat-card-header>
-    <mat-card-title><p>Tareas agregadas</p></mat-card-title>
-  </mat-card-header>
+  <mat-card class="newtask">
+    <mat-card-header>
+      <mat-card-title>
+        <p>Tareas agregadas</p>
+      </mat-card-title>
+    </mat-card-header>
     <mat-card-content>
       <div *ngFor="let tareas of tareas">
-        <input type="checkbox" (click)="removetask(tareas.task)">
-          {{tareas.task}}
-          {{tareas.date | date:"mediumDate"}}
-        </div>
+        <!-- <input type="checkbox" (click)="EditTask(tareas.id)"> -->
+        <!-- <input type="checkbox" (click)="removetask(tareas.id,tareas.todo)">-->
+      <button mat-icon-button class="iconos"  (click)="removetask(tareas.id,tareas.todo)"><mat-icon>delete</mat-icon></button>
+      <button mat-icon-button class="iconos"  (click)="EditTask(tareas.id,tareas.todo)"><mat-icon>update</mat-icon></button>
+        {{tareas.todo}}
+        {{tareas.completed}}
+        {{tareas.userId}}
+      </div>
     </mat-card-content>
-</mat-card>
+  </mat-card>
 
-<mat-card class="newtask">
-  <mat-card-header>
-    <mat-card-title><p>Tareas Terminadas</p></mat-card-title>
-  </mat-card-header>
+  <mat-card class="newtask">
+    <mat-card-header>
+      <mat-card-title>
+        <p>Tareas Terminadas</p>
+      </mat-card-title>
+    </mat-card-header>
     <mat-card-content>
-      <div *ngFor="let tareaterminada of taskterminada">
-        <input type="checkbox" (click)="removetask(tareaterminada.task)">
-        {{tareaterminada.task}}
-        {{tareaterminada.date | date:"mediumDate"}}
-        </div>
+      <div *ngFor="let tareaterminada of Dtarea">
+        <!-- <input type="checkbox" (click)="removetask(tareaterminada.id)"> -->
+        {{tareaterminada.todo}}
+        {{tareaterminada.deletedOn| date:"mediumDate"}}
+      </div>
     </mat-card-content>
-</mat-card>
+  </mat-card>
 </div>
 
 <!--<h3>Tareas pendientes</h3>
@@ -55,5 +66,4 @@
   {{tareaterminada.status}}
 
 </div>-->
-
 
